@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAIAssistant();
   initSearch();
   initScrollSpy();
+  initScrollReveals();
   initIcons();
 });
 
@@ -174,10 +175,10 @@ function renderTimeline(filter = "all", searchQuery = "") {
 
             <div class="flex items-center gap-2 self-start md:self-auto no-print">
               <button onclick="toggleAccordion('${item.id}')" 
-                class="accordion-toggle-btn text-xs font-semibold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all"
+                class="accordion-toggle-btn timeline-detail-control"
                 id="btn-toggle-${item.id}">
+                <span class="detail-symbol" id="symbol-toggle-${item.id}" aria-hidden="true">${isDefaultExpanded ? '−' : '+'}</span>
                 <span id="txt-toggle-${item.id}">${isDefaultExpanded ? 'צמצם פירוט' : 'פירוט מלא'}</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 rotate-toggle ${isDefaultExpanded ? 'open' : ''}" id="icon-toggle-${item.id}"></i>
               </button>
             </div>
           </div>
@@ -280,17 +281,17 @@ window.jumpToExperience = function(id) {
 
 function toggleAccordion(id) {
   const content = document.getElementById(`content-${id}`);
-  const icon = document.getElementById(`icon-toggle-${id}`);
+  const symbol = document.getElementById(`symbol-toggle-${id}`);
   const txt = document.getElementById(`txt-toggle-${id}`);
   if (!content) return;
 
   if (content.classList.contains("expanded")) {
     content.classList.remove("expanded");
-    if (icon) icon.classList.remove("open");
+    if (symbol) symbol.textContent = "+";
     if (txt) txt.textContent = "פירוט מלא";
   } else {
     content.classList.add("expanded");
-    if (icon) icon.classList.add("open");
+    if (symbol) symbol.textContent = "−";
     if (txt) txt.textContent = "צמצם פירוט";
   }
 }
@@ -306,16 +307,16 @@ function toggleAllAccordions() {
   const items = window.CV_DATA.experience;
   items.forEach(item => {
     const content = document.getElementById(`content-${item.id}`);
-    const icon = document.getElementById(`icon-toggle-${item.id}`);
+    const symbol = document.getElementById(`symbol-toggle-${item.id}`);
     const txt = document.getElementById(`txt-toggle-${item.id}`);
     if (content) {
       if (allExpanded) {
         content.classList.add("expanded");
-        if (icon) icon.classList.add("open");
+        if (symbol) symbol.textContent = "−";
         if (txt) txt.textContent = "צמצם פירוט";
       } else {
         content.classList.remove("expanded");
-        if (icon) icon.classList.remove("open");
+        if (symbol) symbol.textContent = "+";
         if (txt) txt.textContent = "פירוט מלא";
       }
     }
@@ -828,6 +829,26 @@ function initScrollSpy() {
       }
     });
   }, { passive: true });
+}
+
+function initScrollReveals() {
+  const targets = document.querySelectorAll("main > section, .timeline-card-wrapper");
+  if (!("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  targets.forEach((target, index) => {
+    target.classList.add("reveal-on-scroll");
+    target.style.transitionDelay = `${Math.min(index % 4, 3) * 65}ms`;
+    observer.observe(target);
+  });
 }
 
 function initIcons() {
