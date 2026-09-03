@@ -74,9 +74,6 @@ body::before {
 .hero-title + p { animation: titleSettle .45s .08s cubic-bezier(.2,.7,.2,1) both; }
 .hero-layout { position: relative; width: 100%; padding: .25rem 0 1.5rem; }
 .hero-content { width: 100%; }
-.recipient-greeting { display: inline-flex; align-items: baseline; padding: .1rem .8rem .15rem 0; border-right: 3px solid var(--warm); }
-.recipient-name { color: var(--brass-deep); font-family: 'Gveret Levin', cursive; font-size: clamp(2.45rem, 4.5vw, 3.8rem); font-weight: 300; letter-spacing: .03em; line-height: .85; opacity: .88; }
-.recipient-cal-logo { width: 58px; height: 32px; margin-right: .65rem; object-fit: contain; border-bottom: 2px solid #2560c7; transform: rotate(-2deg); }
 .hero-achievements { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: .6rem; padding-bottom: 1.25rem; border-bottom: 1px solid #b9d9eb; }
 .hero-achievement { display: flex; align-items: center; gap: .5rem; min-height: 42px; padding: .5rem .65rem; color: var(--ink); background: rgba(255,255,255,.55); border: 1px solid var(--line); font-size: .74rem; font-weight: 800; line-height: 1.35; }
 .hero-achievement svg { flex: 0 0 auto; color: #178ac0; }
