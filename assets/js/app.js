@@ -557,13 +557,22 @@ function initFamilyCallouts() {
     gal: ["גל", "בן 18, מתגייס לחיל האוויר בדצמבר. המינימי שלי."],
   };
   const caption = document.getElementById("family-caption");
+  const captionName = document.getElementById("family-caption-name");
+  const captionText = document.getElementById("family-caption-text");
+  const closeButton = document.getElementById("close-family-caption");
   document.querySelectorAll(".family-callout").forEach(button => {
     button.addEventListener("click", () => {
       document.querySelectorAll(".family-callout").forEach(item => item.classList.remove("is-active"));
       button.classList.add("is-active");
       const [name, text] = captions[button.dataset.person];
-      caption.innerHTML = `<strong>${name}</strong><span>${text}</span>`;
+      captionName.textContent = name;
+      captionText.textContent = text;
+      caption.classList.remove("is-hidden");
     });
+  });
+  closeButton.addEventListener("click", () => {
+    caption.classList.add("is-hidden");
+    document.querySelectorAll(".family-callout").forEach(item => item.classList.remove("is-active"));
   });
 }
 

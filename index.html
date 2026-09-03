@@ -420,15 +420,17 @@
                      alt="אמיר רוזן ומשפחתו" 
                      class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700">
                 <div class="family-callouts" aria-label="הכירו את משפחת רוזן">
-                  <button type="button" class="family-callout is-active callout-shelly" data-person="shelly"><span>שלי</span></button>
-                  <button type="button" class="family-callout callout-yonatan" data-person="yonatan"><span>יונתן</span></button>
-                  <button type="button" class="family-callout callout-amir" data-person="amir"><span>אני</span></button>
-                  <button type="button" class="family-callout callout-libi" data-person="libi"><span>ליבי</span></button>
-                  <button type="button" class="family-callout callout-gal" data-person="gal"><span>גל</span></button>
+                  <button type="button" class="family-callout callout-shelly" data-person="shelly" title="לחצו להכיר את שלי"><span>שלי</span><b>+</b></button>
+                  <button type="button" class="family-callout callout-yonatan" data-person="yonatan" title="לחצו להכיר את יונתן"><span>יונתן</span><b>+</b></button>
+                  <button type="button" class="family-callout callout-amir" data-person="amir" title="לחצו להכיר את אמיר"><span>אני</span><b>+</b></button>
+                  <button type="button" class="family-callout callout-libi" data-person="libi" title="לחצו להכיר את ליבי"><span>ליבי</span><b>+</b></button>
+                  <button type="button" class="family-callout callout-gal" data-person="gal" title="לחצו להכיר את גל"><span>גל</span><b>+</b></button>
                 </div>
-              </div>
-              <div id="family-caption" class="family-caption" aria-live="polite">
-                <strong>שלי</strong><span>מטפלת זוגית ופסיכותרפיסטית. הכרנו בצבא, ומאז אנחנו יחד באושר.</span>
+                <div id="family-caption" class="family-caption is-hidden" aria-live="polite">
+                  <button type="button" id="close-family-caption" class="family-caption-close" aria-label="סגירת הסיפור המשפחתי"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  <strong id="family-caption-name"></strong>
+                  <span id="family-caption-text"></span>
+                </div>
               </div>
             </div>
           </div>
