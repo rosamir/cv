@@ -4,21 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   
-  <title>אמיר רוזן | Chief AI Officer & מנהיג טכנולוגיה, חדשנות ועסקים</title>
+  <title>אמיר רוזן | אסטרטגיה ויישום AI</title>
   
   <!-- SEO & OpenGraph Meta Tags -->
   <meta name="description" content="אמיר רוזן - Chief AI Officer (CAIO) בבנק לאומי, לשעבר מנכ״ל Irani Ventures וסמנכ״ל טכנולוגיות. מעל 20 שנות ניסיון במנהיגות טכנולוגית ועסקית, טרנספורמציה דיגיטלית ו-AI.">
   <meta name="keywords" content="אמיר רוזן, Amir Rosen, Chief AI Officer, CAIO, בנק לאומי, Irani Ventures, Factory 54, CIO, VP Technology, בינה מלאכותית, טרנספורמציה דיגיטלית">
   <meta name="author" content="אמיר רוזן (Amir Rosen)">
+  <link rel="canonical" href="https://rosamir.github.io/cv/">
   
-  <meta property="og:title" content="אמיר רוזן | Chief AI Officer & מנהיג טכנולוגיה ועסקים">
-  <meta property="og:description" content="קורות חיים ופורטפוליו מנהלים אינטראקטיבי: מעל 20 שנה של מנהיגות C-Level, הובלת מרכז ה-AI של בנק לאומי, ניהול קרן הון סיכון ויחידות P&L בהיקפי ענק.">
+  <meta property="og:title" content="אמיר רוזן | אסטרטגיה ויישום AI">
+  <meta property="og:description" content="מנהל בכיר עם התמחות באסטרטגיה ויישום AI, מחבר בין טכנולוגיה, דאטה ואנשים.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="he_IL">
-  <meta property="og:image" content="assets/images/family.jpg">
+  <meta property="og:url" content="https://rosamir.github.io/cv/">
+  <meta property="og:image" content="https://rosamir.github.io/cv/assets/images/family.jpg">
+  <meta property="og:image:alt" content="אמיר רוזן ומשפחתו">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="אמיר רוזן | אסטרטגיה ויישום AI">
+  <meta name="twitter:description" content="מנהל בכיר עם התמחות באסטרטגיה ויישום AI, מחבר בין טכנולוגיה, דאטה ואנשים.">
+  <meta name="twitter:image" content="https://rosamir.github.io/cv/assets/images/family.jpg">
   
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20%22100%22%20%22100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -76,38 +83,24 @@
         <div>
           <div class="text-base md:text-lg font-extrabold text-white flex items-center gap-1.5 tracking-tight">
             אמיר רוזן
-            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           </div>
-          <div class="text-[11px] text-cyan-400 font-medium">Chief AI Officer | C-Level Tech Leader</div>
         </div>
       </a>
 
       <!-- Desktop Nav Links -->
       <nav class="hidden xl:flex items-center gap-6 text-sm font-semibold text-slate-300">
-        <a href="#experience" class="hover:text-cyan-400 transition-colors">המסע המקצועי</a>
-        <a href="#media-hub" class="hover:text-cyan-400 transition-colors">מדיה ורפרנסים</a>
-        <a href="#personal" class="hover:text-cyan-400 transition-colors">עליי</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">ניסיון תעסוקתי</a>
+        <a href="#personal" class="hover:text-cyan-400 transition-colors">עליי מעבר לעבודה</a>
       </nav>
 
       <!-- Executive Action Tools -->
       <div class="flex items-center gap-2 md:gap-3">
-        <!-- PDF / Print Trigger -->
-        <button onclick="printResume()" title="הדפסה או שמירה כ-PDF" 
-          class="hidden sm:flex p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all">
-          <i data-lucide="printer" class="w-5 h-5"></i>
-        </button>
-
         <!-- Share Button -->
         <button onclick="shareProfile()" title="שיתוף פרופיל" 
           class="hidden sm:flex p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all">
           <i data-lucide="share-2" class="w-5 h-5"></i>
         </button>
 
-        <!-- Theme Switcher -->
-        <button id="theme-toggle-btn" title="החלף מצב תצוגה" 
-          class="hidden sm:flex p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all">
-          <i data-lucide="sun" class="w-5 h-5 text-amber-400"></i>
-        </button>
       </div>
 
     </div>
@@ -127,11 +120,20 @@
         
         <!-- Hero Text & Value Proposition -->
         <div class="hero-content space-y-6 text-center lg:text-right">
+
+          <!-- Replace the recipient name before sharing this profile. -->
+          <div class="recipient-greeting" aria-label="הודעה אישית לנמענת">
+            <strong id="recipient-name" class="recipient-name">ליפית</strong>
+            <img class="recipient-cal-logo" src="assets/images/cal-logo.svg" alt="Cal">
+          </div>
           
-          <!-- Executive Distinction Pill -->
-          <div class="hero-distinction">
-            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
-            <span>מקום 1 בישראל באימוץ AI (מדד Evident AI 2026) | בנק לאומי</span>
+          <!-- Executive Achievements -->
+          <div class="hero-achievements" aria-label="הישגים מרכזיים">
+            <div class="hero-achievement"><i data-lucide="award" class="w-4 h-4"></i><span>מקום 1 בישראל באימוץ AI (מדד Evident AI 2026) | בנק לאומי</span></div>
+            <div class="hero-achievement"><i data-lucide="gauge" class="w-4 h-4"></i><span>יחס יעילות מוביל במערכת הבנקאית</span></div>
+            <div class="hero-achievement"><i data-lucide="sparkles" class="w-4 h-4"></i><span>טרנספורמציית AI חוצת בנק</span></div>
+            <div class="hero-achievement"><i data-lucide="git-branch" class="w-4 h-4"></i><span>שינוי DNA ארגוני</span></div>
+            <div class="hero-achievement"><i data-lucide="trending-up" class="w-4 h-4"></i><span>שיפור שירות, צמיחה עסקית ופרודוקטיביות</span></div>
           </div>
 
           <!-- Main Title -->
@@ -140,25 +142,18 @@
               אמיר רוזן
             </h1>
             <p class="text-lg sm:text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-blue-400">
-              מנהל בכיר המחבר בין עסק, טכנולוגיה, דאטה ואנשים
+              מנהל בכיר עם התמחות באסטרטגיה ויישום AI, מחבר בין טכנולוגיה, דאטה ואנשים
             </p>
           </div>
 
           <!-- Executive Elevator Pitch Summary -->
-          <p class="text-sm md:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+          <p class="hero-summary text-sm md:text-base text-slate-300 leading-relaxed mx-auto lg:mx-0 font-normal">
             הובלת חדשנות, טרנספורמציה דיגיטלית ו-AI - מגיבוש אסטרטגיה עסקית וטכנולוגית דרך יישום בפועל והובלת שינוי ארגוני ועד אימוץ והשפעה עסקית.
             <br><br>
             לאורך יותר משני עשורים מילאתי תפקידי ניהול, טכנולוגיה, חדשנות ועסקים במגוון רחב של ארגונים ותעשיות: מפיננסים, ביטוח ורפואה ועד Retail, טלקום והייטק. הניסיון הזה מאפשר לי להביא לכל אתגר פרספקטיבה רחבה, לחבר בין עולמות וליישם תובנות ופתרונות מתחום אחד באחר.
             <br><br>
-            במהלך הקריירה ניהלתי יחידות טכנולוגיות ועסקיות, אגפי P&L בהיקפים של מאות מיליוני שקלים, פעילות השקעות וחדשנות ודירקטוריונים, ובשנים האחרונות הובלתי בבנק לאומי מהלכי טרנספורמציה רחבי היקף ואת מרכז ה-AI בכפיפות ישירה למנכ״ל. אני משלב ראייה ניהולית ואסטרטגית עם הבנה טכנולוגית עמוקה ויכולת Hands-on, ויודע לקחת רעיון או יעד עסקי, להפוך אותו לתכנית מעשית ולהוביל אותו עד ליישום ולתוצאה.
+            במהלך הקריירה ניהלתי יחידות טכנולוגיות ועסקיות, אגפי P&L בהיקפים של מאות מיליוני שקלים, פעילות השקעות וחדשנות ודירקטוריונים, <strong class="hero-highlight">ובשנים האחרונות הובלתי בבנק לאומי מהלכי טרנספורמציה רחבי היקף ואת מרכז ה-AI בכפיפות ישירה למנכ״ל. אני משלב ראייה ניהולית ואסטרטגית עם הבנה טכנולוגית עמוקה ויכולת Hands-on, ויודע לקחת רעיון או יעד עסקי, להפוך אותו לתכנית מעשית ולהוביל אותו עד ליישום ולתוצאה.</strong>
           </p>
-
-          <div class="hero-achievement-list" aria-label="הישגים מרכזיים">
-            <span>יחס יעילות מוביל במערכת הבנקאית</span>
-            <span>טרנספורמציית AI חוצת בנק</span>
-            <span>שינוי DNA ארגוני</span>
-            <span>שירות, צמיחה ופרודוקטיביות</span>
-          </div>
 
           <a href="#personal" class="personal-entry-link">
             <span class="personal-entry-mark"><i data-lucide="heart" class="w-4 h-4"></i></span>
@@ -167,101 +162,43 @@
           </a>
 
           <!-- Quick Contact Bar -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+          <div class="hero-contact-bar pt-2">
             <a href="https://wa.me/972542435566?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%9E%D7%99%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%90%D7%AA%D7%A8%20%D7%A7%D7%95%D7%A8%D7%95%D7%AA%20%D7%94%D7%97%D7%99%D7%99%D7%9D%20%D7%94%D7%9E%D7%A0%D7%94%D7%9C%D7%99%20%D7%A9%D7%9C%D7%9A%20%D7%95%D7%90%D7%A9%D7%9 prospective%20%D7%9C%D7%A9%D7%95%D7%97%D7%97" 
                target="_blank" rel="noopener noreferrer" 
-               class="btn-primary btn-whatsapp text-sm font-bold">
-              <i data-lucide="message-circle" class="w-4 h-4"></i>
+               class="btn-secondary hero-contact-btn text-sm font-bold">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
               <span>וואטסאפ מהיר</span>
             </a>
 
-            <a href="tel:0542435566" class="btn-secondary text-sm font-semibold">
+            <a href="tel:0542435566" class="btn-secondary hero-contact-btn text-sm font-semibold">
               <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
               <span class="font-num">054-2435566</span>
             </a>
 
-            <a href="mailto:ros.amir@gmail.com" class="btn-secondary text-sm font-semibold">
+            <a href="mailto:ros.amir@gmail.com" class="btn-secondary hero-contact-btn text-sm font-semibold">
               <i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i>
               <span>ros.amir@gmail.com</span>
             </a>
 
-            <a href="https://www.linkedin.com/in/amir-rosen/" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm font-semibold">
-              <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i>
+            <a href="https://www.linkedin.com/in/amir-rosen/" target="_blank" rel="noopener noreferrer" class="btn-secondary hero-contact-btn text-sm font-semibold">
+              <i data-lucide="network" class="w-4 h-4 text-blue-400"></i>
               <span>LinkedIn</span>
             </a>
 
-            <a href="docs/cv.docx" download="Amir_Rosen_CV.docx" class="btn-secondary text-sm font-semibold" title="הורדת מסמך קורות חיים מקורי">
-              <i data-lucide="download" class="w-4 h-4 text-amber-400"></i>
-              <span>Word CV</span>
-            </a>
-          </div>
-
-          <!-- Fast Copy Tools -->
-          <div class="flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400 pt-1">
-            <button onclick="copyContactInfo('phone', '054-2435566')" class="hover:text-cyan-400 flex items-center gap-1 transition-colors">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i> העתק טלפון
-            </button>
-            <span>•</span>
-            <button onclick="copyContactInfo('email', 'ros.amir@gmail.com')" class="hover:text-cyan-400 flex items-center gap-1 transition-colors">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i> העתק אימייל
-            </button>
-            <span>•</span>
-            <button onclick="copyContactInfo('linkedin', 'https://www.linkedin.com/in/amir-rosen/')" class="hover:text-cyan-400 flex items-center gap-1 transition-colors">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i> העתק לינקדאין
-            </button>
           </div>
 
         </div>
 
       </div>
     </section>
-
-
-    <!-- EXECUTIVE IMPACT METRICS / STATS -->
-    <section id="overview" class="scroll-mt-20">
-      <div class="text-center md:text-right mb-6">
-        <div class="badge-executive text-xs font-bold mb-2">
-          <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i>
-          השפעה עסקית ומדדי אימפקט מרכזיים
-        </div>
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white">תוצאות מוכחות והישגים מדידים</h2>
-      </div>
-
-      <!-- Stats Grid -->
-      <div id="stats-grid-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 stat-grid">
-        <!-- Rendered via JS -->
-      </div>
-    </section>
-
-
-    <!-- CORE COMPETENCIES & LEADERSHIP MATRIX -->
-    <section id="competencies" class="scroll-mt-20">
-      <div class="text-center md:text-right mb-6">
-        <div class="badge-executive text-xs font-bold mb-2">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-          ספקטרום מקצועי וארגז כלים מנהיגותי
-        </div>
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white">תחומי מומחיות וערך אסטרטגי</h2>
-      </div>
-
-      <!-- Competencies Grid -->
-      <div id="competencies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        <!-- Rendered via JS -->
-      </div>
-    </section>
-
 
     <!-- EXECUTIVE EXPERIENCE & CAREER JOURNEY -->
     <section id="experience" class="scroll-mt-20">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div class="badge-executive text-xs font-bold mb-2">
-            <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
-            מסע מקצועי, תפקידי מפתח והישגים
-          </div>
-          <h2 class="text-2xl md:text-3xl font-extrabold text-white">ניסיון תעסוקתי מפורט</h2>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white">ניסיון תעסוקתי</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1">
-            מעל 20 שנה של מנהיגות טכנולוגית, פיננסית, קמעונאית וביטחונית. לחץ להרחבת כל תפקיד.
+            לחץ להרחבת כל תפקיד
           </p>
         </div>
 
@@ -285,42 +222,6 @@
         </div>
       </div>
 
-      <!-- Filters & Search Toolbar -->
-      <div class="glass-card p-4 mb-8 no-print space-y-3">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-3">
-          
-          <!-- Category Filter Pills -->
-          <div class="flex flex-wrap items-center gap-1.5 w-full md:w-auto">
-            <button onclick="filterTimeline('all')" data-category="all" class="timeline-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20">
-              כל התפקידים
-            </button>
-            <button onclick="filterTimeline('ai')" data-category="ai" class="timeline-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-              AI & C-Level
-            </button>
-            <button onclick="filterTimeline('banking')" data-category="banking" class="timeline-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-              בנקאות & פיננסים
-            </button>
-            <button onclick="filterTimeline('retail')" data-category="retail" class="timeline-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-              Retail & VC
-            </button>
-            <button onclick="filterTimeline('cloud')" data-category="cloud" class="timeline-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-              ענן & מוצרים
-            </button>
-            <button onclick="filterTimeline('defense')" data-category="defense" class="timeline-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-              טלקום & מודיעין
-            </button>
-          </div>
-
-          <!-- Instant Search Input -->
-          <div class="relative w-full md:w-72">
-            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="timeline-search-input" placeholder="חיפוש לפי תפקיד, חברה, טכנולוגיה..." 
-              class="w-full bg-slate-950/80 border border-white/10 rounded-xl pr-10 pl-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors">
-          </div>
-
-        </div>
-      </div>
-
       <!-- Timeline Track & Cards -->
       <div id="timeline-container" class="timeline-track" aria-live="polite">
         <!-- Rendered via JS -->
@@ -332,30 +233,10 @@
     <section id="media-hub" class="scroll-mt-20">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
-          <div class="badge-executive text-xs font-bold mb-2">
-            <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-            הד תקשורתי, ראיונות וכתבות עומק
-          </div>
-          <h2 class="text-2xl md:text-3xl font-extrabold text-white">סיקור תקשורתי ומנהיגות דעה</h2>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white">מהתקשורת</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1">
-            כלל הכתבות בעיתונות המובילה (TheMarker, מעריב, וואלה), ראיונות וידאו, מאמרים מקצועיים ופוסטים מרכזיים.
+            מדגם כתבות בעיתונות המובילה (TheMarker, מעריב, וואלה), ראיונות וידאו, מאמרים מקצועיים ופוסטים מרכזיים.
           </p>
-        </div>
-
-        <!-- Media Filter Pills -->
-        <div class="flex flex-wrap items-center gap-1.5 no-print">
-          <button onclick="filterMedia('all')" data-category="all" class="media-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20">
-            הכל
-          </button>
-          <button onclick="filterMedia('press')" data-category="press" class="media-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-            עיתונות וסיקור
-          </button>
-          <button onclick="filterMedia('leadership')" data-category="leadership" class="media-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-            תובנות לינקדאין
-          </button>
-          <button onclick="filterMedia('video')" data-category="video" class="media-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10">
-            וידאו ומדיה
-          </button>
         </div>
       </div>
 
@@ -369,11 +250,7 @@
     <!-- ACADEMIC EDUCATION & MENTORSHIP -->
     <section id="education" class="scroll-mt-20">
       <div class="text-center md:text-right mb-6">
-        <div class="badge-executive text-xs font-bold mb-2">
-          <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
-          מצוינות אקדמית & טיפוח דור העתיד
-        </div>
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white">השכלה, אקדמיה ומנטורינג</h2>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-white">השכלה ועוד</h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -406,20 +283,16 @@
 
     <!-- PERSONAL STORY, VALUES & FAMILY -->
     <section id="personal" class="scroll-mt-20">
-      <div class="glass-card p-6 md:p-10 border-emerald-500/20 relative overflow-hidden">
+      <div class="glass-card personal-section p-6 md:p-8 border-emerald-500/20 relative overflow-hidden">
         
-        <div class="text-center md:text-right mb-8">
-          <div class="badge-executive badge-emerald text-xs font-bold mb-2">
+        <div class="personal-section-heading text-center md:text-right mb-5">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white flex items-center justify-center md:justify-start gap-2">
             <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-            מעבר לתפקיד: האדם שמאחורי המנהיגות
-          </div>
-          <h2 class="text-2xl md:text-3xl font-extrabold text-white">העוגן שלי - משפחה, ערכים ותשוקה</h2>
-          <p class="text-xs md:text-sm text-slate-400 mt-1">
-            טכנולוגיה ו-AI הם כלים רבי עוצמה; האנשים, הערכים והאיזון הם המנוע שמניע את הכל קדימה.
-          </p>
+            קצת עליי מעבר לעבודה
+          </h2>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="personal-section-content grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           
           <!-- Family Photo Card -->
           <div class="lg:col-span-5 flex flex-col items-center">
@@ -445,15 +318,10 @@
             </div>
           </div>
 
-          <!-- Story Text & Core Leadership Values -->
-          <div class="lg:col-span-7 space-y-6">
+          <!-- Personal Story -->
+          <div class="personal-story-copy lg:col-span-7 space-y-4">
             
             <div id="personal-story-paragraphs" class="space-y-4">
-              <!-- Rendered via JS -->
-            </div>
-
-            <!-- Leadership Creed Grid -->
-            <div id="personal-values-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <!-- Rendered via JS -->
             </div>
 
@@ -480,13 +348,10 @@
           </div>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">יצירת קשר ישיר ותיאום פגישה</h2>
-        <p class="text-sm text-slate-300 max-w-xl mx-auto mb-6">
-          פתוח לשיחות והזדמנויות הובלה בכירות (C-Level / CAIO / Board) בארגונים מובילים, תאגידים וסטארטאפים בצמיחה.
-        </p>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-6">יצירת קשר</h2>
 
         <!-- Direct Contact Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-3xl mx-auto mb-8">
           
           <a href="https://wa.me/972542435566" target="_blank" rel="noopener noreferrer" 
              class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 text-emerald-400 flex flex-col items-center justify-center gap-1 transition-all">
@@ -509,56 +374,12 @@
             <span class="text-xs text-blue-300 font-num">ros.amir@gmail.com</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/amir-rosen/" target="_blank" rel="noopener noreferrer" 
-             class="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30 hover:bg-indigo-500/20 text-indigo-400 flex flex-col items-center justify-center gap-1 transition-all">
-            <i data-lucide="linkedin" class="w-6 h-6 mb-1"></i>
-            <span class="text-xs font-bold text-white">פרופיל LinkedIn</span>
-            <span class="text-xs text-indigo-300 font-num">in/amir-rosen</span>
-          </a>
-
-        </div>
-
-        <!-- Download & Print Actions -->
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <button onclick="printResume()" class="btn-primary text-xs md:text-sm py-2.5 px-5">
-            <i data-lucide="file-down" class="w-4 h-4"></i>
-            <span>הדפסה / ייצוא כ-PDF</span>
-          </button>
-
-          <a href="docs/cv.docx" download="Amir_Rosen_CV.docx" class="btn-secondary text-xs md:text-sm py-2.5 px-5">
-            <i data-lucide="download" class="w-4 h-4 text-amber-400"></i>
-            <span>הורדת קובץ Word מקורי</span>
-          </a>
-
-          <button onclick="shareProfile()" class="btn-secondary text-xs md:text-sm py-2.5 px-5">
-            <i data-lucide="share-2" class="w-4 h-4"></i>
-            <span>שתף פרופיל</span>
-          </button>
         </div>
 
       </div>
     </section>
 
   </main>
-
-
-  <!-- ========================================================================
-       FOOTER
-       ======================================================================== -->
-  <footer class="border-t border-white/10 py-8 text-center text-xs text-slate-500 no-print">
-    <div class="content-wrapper flex flex-col md:flex-row items-center justify-between gap-4">
-      <div>
-        © 2026 אמיר רוזן (Amir Rosen) | כל הזכויות שמורות. נבנה בסטנדרט מנהלים מותאם מובייל ודסקטופ.
-      </div>
-      <div class="flex items-center gap-4 text-slate-400">
-        <a href="#hero" class="hover:text-cyan-400 transition-colors">לראש העמוד</a>
-        <span>•</span>
-        <a href="https://www.linkedin.com/in/amir-rosen/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
-        <span>•</span>
-        <button onclick="printResume()" class="hover:text-cyan-400 transition-colors">גרסת הדפסה</button>
-      </div>
-    </div>
-  </footer>
 
 
   <!-- ========================================================================

@@ -155,9 +155,6 @@ function renderTimeline(filter = "all", searchQuery = "") {
                   <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
                   ${item.period}
                 </span>
-                <span class="badge-executive text-xs font-bold ${item.category === 'ai' ? 'badge-emerald' : 'badge-gold'} px-2.5 py-0.5 rounded-full">
-                  ${item.badge}
-                </span>
                 ${item.directReport ? `
                   <span class="text-xs font-medium text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 px-2.5 py-0.5 rounded-full flex items-center gap-1">
                     <i data-lucide="sparkles" class="w-3 h-3"></i>
@@ -187,7 +184,7 @@ function renderTimeline(filter = "all", searchQuery = "") {
           <div class="accordion-content ${isDefaultExpanded ? 'expanded' : ''}" id="content-${item.id}">
             <div class="timeline-detail pt-5 mt-5 border-t border-white/10 space-y-4">
               <div class="timeline-summary text-sm text-slate-300 leading-relaxed">
-                <strong class="text-slate-100 font-semibold">תמצית מנהלים: </strong>${item.shortSummary}
+                <strong class="text-slate-100 font-semibold">תמצית: </strong>${item.shortSummary}
               </div>
               <div class="flex flex-wrap gap-1.5">
                 ${item.tags.map(tag => `<span class="timeline-tag">${tag}</span>`).join("")}
@@ -204,42 +201,6 @@ function renderTimeline(filter = "all", searchQuery = "") {
                   </li>
                 `).join("")}
               </ul>
-
-              <!-- Related Press & Social Links for this role -->
-              ${item.links && item.links.length > 0 ? `
-                <div class="mt-6 pt-4 border-t border-white/10">
-                  <h5 class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5 mb-3">
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                    סיקור תקשורתי, ראיונות וקישורים רלוונטיים לתפקיד זה:
-                  </h5>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    ${item.links.map(l => `
-                      <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="media-card p-3.5 flex flex-col justify-between group/link">
-                        <div>
-                          <div class="flex items-center justify-between gap-2 mb-1.5">
-                            <span class="media-badge-source text-[11px] font-bold ${l.type === 'press' ? 'bg-red-500/20 text-red-300 border border-red-500/30' : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'}">
-                              ${l.source}
-                            </span>
-                            <span class="text-[11px] font-semibold text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded">
-                              ${l.badge}
-                            </span>
-                          </div>
-                          <div class="text-sm font-bold text-slate-100 group-hover/link:text-cyan-400 transition-colors line-clamp-2">
-                            ${l.title}
-                          </div>
-                          <div class="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
-                            ${l.desc}
-                          </div>
-                        </div>
-                        <div class="flex items-center gap-1 text-xs font-bold text-cyan-400 mt-3 pt-2 border-t border-white/5">
-                          <span>קרא כתבה / צפה בפוסט</span>
-                          <i data-lucide="arrow-left" class="w-3.5 h-3.5 transition-transform group-hover/link:-translate-x-1"></i>
-                        </div>
-                      </a>
-                    `).join("")}
-                  </div>
-                </div>
-              ` : ''}
 
             </div>
           </div>
@@ -261,6 +222,7 @@ function renderJourneyStations() {
     <button type="button" class="journey-station ${index === 0 ? 'is-current' : ''}" onclick="jumpToExperience('${item.id}')">
       <span class="journey-station-year">${item.period.split(" - ")[0]}</span>
       <span class="journey-station-company">${item.company.split(" (")[0]}</span>
+      <span class="journey-station-role">${item.role}</span>
     </button>
   `).join("");
 }
@@ -391,6 +353,42 @@ function renderCompetencies() {
    ========================================================================== */
 let activeMediaFilter = "all";
 
+const mediaFallbackImages = [
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80"
+];
+
+function getMediaFallback(index) {
+  return mediaFallbackImages[index % mediaFallbackImages.length];
+}
+
+function getMediaThumbnail(item, index) {
+  return item.image || getMediaFallback(index);
+}
+
 function renderMediaHub(filter = "all") {
   const container = document.getElementById("media-grid-container");
   if (!container || !window.CV_DATA) return;
@@ -402,10 +400,11 @@ function renderMediaHub(filter = "all") {
     items = items.filter(item => item.category === filter);
   }
 
-  container.innerHTML = items.map(item => `
+  container.innerHTML = items.map((item, index) => `
     <a href="${item.url}" target="_blank" rel="noopener noreferrer" 
       class="media-card flex flex-col justify-between p-4 group transition-all">
-      <div>
+      <img class="media-card-image" src="${getMediaThumbnail(item, index)}" data-fallback="${getMediaFallback(index)}" alt="" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;">
+      <div class="media-card-content">
         <div class="flex items-center justify-between gap-2 mb-2">
           <span class="media-badge-source text-[10px] font-bold ${
             item.category === 'press' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' :
@@ -425,7 +424,7 @@ function renderMediaHub(filter = "all") {
         </p>
       </div>
 
-      <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+      <div class="media-card-footer mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
         <div class="flex flex-wrap gap-1">
           ${item.tags.slice(0, 2).map(t => `
             <span class="text-[10px] text-slate-400 bg-white/5 px-2 py-0.5 rounded">#${t}</span>
@@ -475,7 +474,7 @@ function renderEducation() {
           </span>
           <h4 class="text-base font-bold text-white">${item.degree}</h4>
           <div class="text-sm font-semibold text-cyan-400 mb-1">${item.institution}</div>
-          <p class="text-xs text-slate-300 leading-relaxed">${item.details}</p>
+          ${item.details ? `<p class="text-xs text-slate-300 leading-relaxed">${item.details}</p>` : ''}
         </div>
       </div>
     `).join("");
@@ -494,21 +493,9 @@ function renderEducation() {
             </span>
             <h4 class="text-base font-bold text-white">${item.role}</h4>
             <div class="text-sm font-semibold text-emerald-400 mb-1">${item.institution}</div>
-            <p class="text-xs text-slate-300 leading-relaxed">${item.details}</p>
+            ${item.details ? `<p class="text-xs text-slate-300 leading-relaxed">${item.details}</p>` : ''}
           </div>
         </div>
-
-        ${item.links && item.links.length > 0 ? `
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-2">
-            ${item.links.map(l => `
-              <a href="${l.url}" target="_blank" rel="noopener noreferrer" 
-                class="text-xs font-bold text-cyan-400 hover:text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 px-2.5 py-1 rounded-lg flex items-center gap-1 transition-all">
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-                ${l.title}
-              </a>
-            `).join("")}
-          </div>
-        ` : ''}
       </div>
     `).join("");
   }
@@ -534,18 +521,6 @@ function renderPersonalStory() {
     `).join("");
   }
 
-  const valuesContainer = document.getElementById("personal-values-grid");
-  if (valuesContainer) {
-    valuesContainer.innerHTML = data.values.map(val => `
-      <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/30 transition-all">
-        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-2">
-          <i data-lucide="${val.icon}" class="w-4 h-4"></i>
-        </div>
-        <h5 class="text-sm font-bold text-white mb-1">${val.title}</h5>
-        <p class="text-xs text-slate-300 leading-relaxed">${val.desc}</p>
-      </div>
-    `).join("");
-  }
 }
 
 function initFamilyCallouts() {
