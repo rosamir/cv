@@ -250,6 +250,7 @@ function renderTimeline(filter = "all", searchQuery = "") {
   }).join("");
 
   initIcons();
+  requestAnimationFrame(initScrollReveals);
 }
 
 function renderJourneyStations() {
