@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMediaHub();
   renderEducation();
   renderPersonalStory();
+  initFamilyCallouts();
   initSearch();
   initScrollSpy();
   initScrollReveals();
@@ -545,6 +546,25 @@ function renderPersonalStory() {
       </div>
     `).join("");
   }
+}
+
+function initFamilyCallouts() {
+  const captions = {
+    shelly: ["שלי", "מטפלת זוגית ופסיכותרפיסטית. הכרנו בצבא, ומאז אנחנו יחד באושר."],
+    yonatan: ["יונתן", "הבן המרכזי שלנו, בן 16. לומד בכיתת נחשון ומבלה את רוב זמנו בצופים."],
+    amir: ["אני", "מחייך, ומודה בכל יום על המשפחה שהיא העוגן והכוח שמאחורי הדרך."],
+    libi: ["ליבי", "ליבי הבן, בן 10 - הצעיר שלנו, עם שם שאנשים נוטים בטעות לייחס לבת."],
+    gal: ["גל", "בן 18, מתגייס לחיל האוויר בדצמבר. המינימי שלי."],
+  };
+  const caption = document.getElementById("family-caption");
+  document.querySelectorAll(".family-callout").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".family-callout").forEach(item => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+      const [name, text] = captions[button.dataset.person];
+      caption.innerHTML = `<strong>${name}</strong><span>${text}</span>`;
+    });
+  });
 }
 
 /* ==========================================================================
