@@ -55,10 +55,14 @@ body::before {
 .content-wrapper { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 0 1.25rem; }
 .header-glass { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .92); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
 .scroll-progress-bar { height: 2px; width: 0; background: var(--brass); }
+.brand-monogram { display: grid; place-items: center; width: 40px; height: 40px; color: #fff; background: #334bb8; border: 1px solid #334bb8; border-radius: 2px; font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; letter-spacing: .02em; transition: transform .25s ease, background .25s ease; }
+.group:hover .brand-monogram { background: #18243a; transform: translateY(-1px); }
 
 .glass-card { background: rgba(255, 255, 255, .86); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 8px 30px rgba(41, 75, 128, .035); overflow: hidden; }
 .glass-card::before { display: none; }
 .glass-card:hover { border-color: var(--line-dark); box-shadow: 0 8px 24px rgba(63, 53, 40, .06); transform: none; }
+.profile-note { border-top: 3px solid #334bb8; }
+.profile-index { display: grid; place-items: center; width: 42px; height: 42px; color: #334bb8; background: #f1f5ff; border: 1px solid #cbd5ff; font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; }
 
 .badge-executive, .badge-gold, .badge-emerald { border: 0; border-radius: 0; background: transparent; color: var(--brass-deep); padding: 0; font-size: .72rem; font-weight: 800; letter-spacing: .05em; }
 .btn-primary, .btn-secondary { border-radius: 2px; box-shadow: none; padding: .65rem 1rem; font-weight: 700; transition: background .2s ease, color .2s ease, border-color .2s ease; }
@@ -70,6 +74,8 @@ body::before {
 
 .hero-title { font-family: var(--font-display); font-weight: 600 !important; letter-spacing: 0 !important; animation: titleSettle .8s cubic-bezier(.2,.7,.2,1) both; }
 .hero-title + p { animation: titleSettle .8s .12s cubic-bezier(.2,.7,.2,1) both; }
+.hero-distinction { display: inline-flex; align-items: center; gap: .55rem; padding: .35rem 0; color: #178ac0; border-bottom: 1px solid #b9d9eb; font-size: .78rem; font-weight: 800; }
+.hero-distinction svg { color: #ec6d8c; }
 .hero-photo-frame { padding: 0; background: none; border-radius: 0; box-shadow: none; }
 .hero-photo-inner { border: 8px solid #fff; border-radius: 0; box-shadow: 12px 12px 0 var(--paper-deep); }
 .personal-entry-link { display: inline-flex; align-items: center; gap: .7rem; margin-top: .6rem; padding: .7rem 0; color: var(--ink); border-bottom: 1px solid var(--line-dark); text-decoration: none; text-align: right; transition: color .25s ease, border-color .25s ease; }

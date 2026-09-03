@@ -70,10 +70,8 @@
       
       <!-- Brand Logo / Name -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-400 p-[2px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-cyan-400 font-extrabold text-lg font-num">
-            AR
-          </div>
+        <div class="brand-monogram">
+          AR
         </div>
         <div>
           <div class="text-base md:text-lg font-extrabold text-white flex items-center gap-1.5 tracking-tight">
@@ -86,12 +84,9 @@
 
       <!-- Desktop Nav Links -->
       <nav class="hidden xl:flex items-center gap-6 text-sm font-semibold text-slate-300">
-        <a href="#overview" class="hover:text-cyan-400 transition-colors">סקירה ניהולית</a>
-        <a href="#experience" class="hover:text-cyan-400 transition-colors">ניסיון תעסוקתי</a>
-        <a href="#competencies" class="hover:text-cyan-400 transition-colors">יכולות ליבה</a>
-        <a href="#media-hub" class="hover:text-cyan-400 transition-colors">סיקור & מדיה</a>
-        <a href="#education" class="hover:text-cyan-400 transition-colors">השכלה ומנטורינג</a>
-        <a href="#personal" class="hover:text-cyan-400 transition-colors">אישי וערכים</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">המסע המקצועי</a>
+        <a href="#media-hub" class="hover:text-cyan-400 transition-colors">מדיה ורפרנסים</a>
+        <a href="#personal" class="hover:text-cyan-400 transition-colors">עליי</a>
       </nav>
 
       <!-- Executive Action Tools -->
@@ -99,8 +94,8 @@
         <!-- AI Assistant Modal Trigger -->
         <button type="button" class="open-ai-modal-btn btn-primary text-xs md:text-sm py-2 px-3 md:px-4 rounded-xl flex items-center gap-1.5">
           <i data-lucide="bot" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">שאל את ה-AI של אמיר</span>
-          <span class="sm:hidden">AI צ'אט</span>
+          <span class="hidden sm:inline">מידע מהיר על אמיר</span>
+          <span class="sm:hidden">מידע</span>
         </button>
 
         <!-- PDF / Print Trigger -->
@@ -111,13 +106,13 @@
 
         <!-- Share Button -->
         <button onclick="shareProfile()" title="שיתוף פרופיל" 
-          class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all">
+          class="hidden sm:flex p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all">
           <i data-lucide="share-2" class="w-5 h-5"></i>
         </button>
 
         <!-- Theme Switcher -->
         <button id="theme-toggle-btn" title="החלף מצב תצוגה" 
-          class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all">
+          class="hidden sm:flex p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all">
           <i data-lucide="sun" class="w-5 h-5 text-amber-400"></i>
         </button>
       </div>
@@ -141,7 +136,7 @@
         <div class="flex-1 space-y-6 text-center lg:text-right">
           
           <!-- Executive Distinction Pill -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs md:text-sm font-bold shadow-lg shadow-cyan-500/10">
+          <div class="hero-distinction">
             <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
             <span>מקום 1 בישראל באימוץ AI (מדד Evident AI 2026) | בנק לאומי</span>
           </div>
@@ -217,17 +212,12 @@
 
         <!-- Hero Feature Card (Impact & Identity) -->
         <div class="w-full lg:w-96 shrink-0">
-          <div class="glass-card p-6 border-cyan-500/20 relative overflow-hidden">
-            <div class="absolute -top-12 -left-12 w-36 h-36 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="glass-card profile-note p-6 relative overflow-hidden">
             
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-emerald-400 p-0.5">
-                <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-cyan-400">
-                  <i data-lucide="sparkles" class="w-6 h-6"></i>
-                </div>
-              </div>
+              <div class="profile-index">01</div>
               <div>
-                <h3 class="text-base font-bold text-white">Executive Profile</h3>
+                <h3 class="text-base font-bold text-white">פרופיל ניהולי</h3>
                 <div class="text-xs text-emerald-400 font-semibold">זמין להזדמנויות C-Level</div>
               </div>
             </div>
@@ -617,9 +607,9 @@
       <i data-lucide="heart"></i>
       <span>אישי</span>
     </a>
-    <button type="button" class="dock-btn open-ai-modal-btn text-cyan-400" title="AI צ'אט">
+    <button type="button" class="dock-btn open-ai-modal-btn text-cyan-400" title="מידע מהיר">
       <i data-lucide="bot"></i>
-      <span>AI צ'אט</span>
+      <span>מידע</span>
     </button>
     <a href="https://wa.me/972542435566" target="_blank" rel="noopener noreferrer" class="dock-btn text-emerald-400" title="וואטסאפ">
       <i data-lucide="message-circle"></i>
