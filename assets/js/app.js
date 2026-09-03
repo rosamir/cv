@@ -353,42 +353,6 @@ function renderCompetencies() {
    ========================================================================== */
 let activeMediaFilter = "all";
 
-const mediaFallbackImages = [
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80"
-];
-
-function getMediaFallback(index) {
-  return mediaFallbackImages[index % mediaFallbackImages.length];
-}
-
-function getMediaThumbnail(item, index) {
-  return item.image || getMediaFallback(index);
-}
-
 function renderMediaHub(filter = "all") {
   const container = document.getElementById("media-grid-container");
   if (!container || !window.CV_DATA) return;
@@ -403,7 +367,10 @@ function renderMediaHub(filter = "all") {
   container.innerHTML = items.map((item, index) => `
     <a href="${item.url}" target="_blank" rel="noopener noreferrer" 
       class="media-card flex flex-col justify-between p-4 group transition-all">
-      <img class="media-card-image" src="${getMediaThumbnail(item, index)}" data-fallback="${getMediaFallback(index)}" alt="" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;">
+      <div class="media-card-visual" aria-hidden="true">
+        <i data-lucide="${item.category === 'video' ? 'play' : item.category === 'social' ? 'message-circle' : 'newspaper'}"></i>
+        <span>${item.source}</span>
+      </div>
       <div class="media-card-content">
         <div class="flex items-center justify-between gap-2 mb-2">
           <span class="media-badge-source text-[10px] font-bold ${
