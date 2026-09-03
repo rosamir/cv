@@ -146,10 +146,6 @@ body::before {
 .dock-btn { display: flex; flex: 1 1 0; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #ddd8ce; border-radius: 0; padding: .32rem .15rem; font-size: .65rem; text-decoration: none; }
 .dock-btn.active, .dock-btn:hover { color: #fff; background: rgba(255,255,255,.1); }
 
-.ai-chat-bubble-user { background: var(--ink); border-radius: 3px; color: var(--paper); box-shadow: none; }
-.ai-chat-bubble-bot { background: var(--paper-deep); border: 1px solid var(--line); border-radius: 3px; color: var(--ink); }
-.ai-suggested-chip { border: 1px solid var(--line); border-radius: 2px; background: transparent; color: var(--ink-soft); }
-.ai-suggested-chip:hover { background: var(--paper-deep); border-color: var(--brass); color: var(--ink); transform: none; }
 .toast-item { background: var(--ink); border: 0; border-radius: 2px; color: var(--paper); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
 
 .font-num { font-family: var(--font-hebrew); letter-spacing: 0; }
@@ -175,7 +171,7 @@ body::before {
 
 @media print {
   body { background: white !important; color: black !important; padding: 0 !important; }
-  .no-print, .mobile-bottom-dock, #ai-assistant-modal { display: none !important; }
+  .no-print, .mobile-bottom-dock { display: none !important; }
   .accordion-content { max-height: none !important; opacity: 1 !important; }
   .glass-card { background: white !important; box-shadow: none !important; }
 }

@@ -1,6 +1,6 @@
 /**
  * Amir Rosen - Executive Application Controller
- * High-performance UI interactivity, Canvas animations, AI Agent Engine, and Filters
+ * High-performance UI interactivity, canvas animations, and filters
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMediaHub();
   renderEducation();
   renderPersonalStory();
-  initAIAssistant();
   initSearch();
   initScrollSpy();
   initScrollReveals();
@@ -546,141 +545,6 @@ function renderPersonalStory() {
       </div>
     `).join("");
   }
-}
-
-/* ==========================================================================
-   Interactive Executive AI Agent Engine
-   ========================================================================== */
-function initAIAssistant() {
-  const modal = document.getElementById("ai-assistant-modal");
-  const openBtns = document.querySelectorAll(".open-ai-modal-btn");
-  const closeBtn = document.getElementById("close-ai-modal-btn");
-  const chatForm = document.getElementById("ai-chat-form");
-  const chatInput = document.getElementById("ai-chat-input");
-  const messagesContainer = document.getElementById("ai-chat-messages");
-  const chipsContainer = document.getElementById("ai-suggested-chips");
-
-  if (!modal) return;
-
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-      if (chatInput) chatInput.focus();
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-    });
-  }
-
-  // Close on backdrop click
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-    }
-  });
-
-  // Render suggested prompt chips
-  if (chipsContainer && window.CV_DATA) {
-    const questions = window.CV_DATA.aiKnowledgeBase.map(item => item.question);
-    chipsContainer.innerHTML = questions.slice(0, 5).map(q => `
-      <button type="button" class="ai-suggested-chip" onclick="askAIPrompt('${q.replace(/'/g, "\\'")}')">
-        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i>
-        <span>${q}</span>
-      </button>
-    `).join("");
-    initIcons();
-  }
-
-  if (chatForm) {
-    chatForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const q = chatInput.value.trim();
-      if (!q) return;
-      chatInput.value = "";
-      handleUserAIQuery(q);
-    });
-  }
-}
-
-window.askAIPrompt = function(promptText) {
-  handleUserAIQuery(promptText);
-};
-
-function handleUserAIQuery(query) {
-  const messagesContainer = document.getElementById("ai-chat-messages");
-  if (!messagesContainer) return;
-
-  // Add User Message Bubble
-  const userBubble = document.createElement("div");
-  userBubble.className = "ai-chat-bubble-user";
-  userBubble.textContent = query;
-  messagesContainer.appendChild(userBubble);
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-  // Typing indicator
-  const typingBubble = document.createElement("div");
-  typingBubble.className = "ai-chat-bubble-bot flex items-center gap-2 text-slate-400";
-  typingBubble.id = "ai-typing-indicator";
-  typingBubble.innerHTML = `
-    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-    <span class="text-xs">סוכן ה-AI של אמיר מעבד תשובה...</span>
-  `;
-  messagesContainer.appendChild(typingBubble);
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-  // Find best match in knowledge base
-  setTimeout(() => {
-    const indicator = document.getElementById("ai-typing-indicator");
-    if (indicator) indicator.remove();
-
-    const response = matchAIResponse(query);
-    const botBubble = document.createElement("div");
-    botBubble.className = "ai-chat-bubble-bot";
-    botBubble.innerHTML = `
-      <div class="flex items-center gap-1.5 text-xs font-bold text-cyan-400 mb-1.5">
-        <i data-lucide="bot" class="w-3.5 h-3.5"></i>
-        <span>סוכן ה-AI הניהולי של אמיר רוזן</span>
-      </div>
-      <div class="text-sm leading-relaxed">${response}</div>
-    `;
-    messagesContainer.appendChild(botBubble);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    initIcons();
-  }, 450);
-}
-
-function matchAIResponse(query) {
-  const qLower = query.toLowerCase();
-  const kb = window.CV_DATA.aiKnowledgeBase;
-
-  let bestMatch = null;
-  let maxMatches = 0;
-
-  for (const item of kb) {
-    let score = 0;
-    for (const kw of item.keywords) {
-      if (qLower.includes(kw.toLowerCase())) {
-        score++;
-      }
-    }
-    if (score > maxMatches) {
-      maxMatches = score;
-      bestMatch = item;
-    }
-  }
-
-  if (bestMatch && maxMatches > 0) {
-    return bestMatch.answer;
-  }
-
-  // Fallback executive synthesis
-  return `אמיר רוזן הינו מנהל טכנולוגי ועסקי בכיר (C-Level / CAIO) עם מעל 20 שנות ניסיון בהובלת יחידות ענק, טרנספורמציות AI ארגוניות (כולל דירוג בנק לאומי במקום ה-1 בישראל באימוץ AI), ניהול קרן הון סיכון (Irani Ventures) ואחריות P&L בהיקפי עשרות מיליוני שקלים. למידע ממוקד נוסף או לתיאום שיחה, ניתן לפנות ישירות לאמיר בטלפון 054-2435566 או בדוא״ל ros.amir@gmail.com.`;
 }
 
 /* ==========================================================================

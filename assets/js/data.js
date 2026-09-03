@@ -1,6 +1,6 @@
 /**
  * Amir Rosen - Executive CV & Portfolio Data Store
- * All CV contents, media links, metadata, and AI assistant knowledge base
+ * All CV contents, media links, and metadata
  */
 
 const CV_DATA = {
