@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCanvas();
   initScrollProgress();
   renderStats();
+  renderJourneyStations();
   renderTimeline();
   renderCompetencies();
   renderMediaHub();
@@ -138,8 +139,7 @@ function renderTimeline(filter = "all", searchQuery = "") {
   }
 
   container.innerHTML = items.map((item, idx) => {
-    const isFirst = idx === 0;
-    const isDefaultExpanded = isFirst || allExpanded;
+    const isDefaultExpanded = allExpanded;
 
     return `
       <div class="timeline-card-wrapper relative pr-8 md:pr-12 mb-8 group" id="exp-${item.id}">
@@ -182,29 +182,15 @@ function renderTimeline(filter = "all", searchQuery = "") {
             </div>
           </div>
 
-          <!-- Executive Summary Callout -->
-          <div class="mt-4 p-3.5 rounded-xl bg-slate-900/40 border border-slate-700/40 text-sm text-slate-300 leading-relaxed">
-            <div class="flex items-start gap-2">
-              <i data-lucide="compass" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
-              <div>
-                <strong class="text-slate-100 font-semibold">תמצית הישג ואימפקט: </strong>
-                ${item.shortSummary}
-              </div>
-            </div>
-          </div>
-
-          <!-- Tags Strip -->
-          <div class="flex flex-wrap gap-1.5 mt-3.5">
-            ${item.tags.map(tag => `
-              <span class="text-xs font-medium px-2.5 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/5">
-                #${tag}
-              </span>
-            `).join("")}
-          </div>
-
           <!-- Expandable Deep-Dive Bullets -->
-          <div class="accordion-content ${isDefaultExpanded ? 'expanded' : ''} mt-4" id="content-${item.id}">
-            <div class="pt-4 border-t border-white/10 space-y-3">
+          <div class="accordion-content ${isDefaultExpanded ? 'expanded' : ''}" id="content-${item.id}">
+            <div class="timeline-detail pt-5 mt-5 border-t border-white/10 space-y-4">
+              <div class="timeline-summary text-sm text-slate-300 leading-relaxed">
+                <strong class="text-slate-100 font-semibold">תמצית מנהלים: </strong>${item.shortSummary}
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                ${item.tags.map(tag => `<span class="timeline-tag">${tag}</span>`).join("")}
+              </div>
               <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
                 <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
                 אחריות מלאה, תהליכים והישגים מפורטים:
@@ -264,6 +250,33 @@ function renderTimeline(filter = "all", searchQuery = "") {
 
   initIcons();
 }
+
+function renderJourneyStations() {
+  const container = document.getElementById("journey-stations");
+  if (!container || !window.CV_DATA) return;
+
+  container.innerHTML = window.CV_DATA.experience.map((item, index) => `
+    <button type="button" class="journey-station ${index === 0 ? 'is-current' : ''}" onclick="jumpToExperience('${item.id}')">
+      <span class="journey-station-year">${item.period.split(" - ")[0]}</span>
+      <span class="journey-station-company">${item.company.split(" (")[0]}</span>
+    </button>
+  `).join("");
+}
+
+window.jumpToExperience = function(id) {
+  const target = document.getElementById(`exp-${id}`);
+  if (!target) return;
+
+  document.querySelectorAll(".journey-station").forEach(station => station.classList.remove("is-current"));
+  const station = [...document.querySelectorAll(".journey-station")].find(item => item.getAttribute("onclick").includes(id));
+  if (station) station.classList.add("is-current");
+
+  target.scrollIntoView({ behavior: "smooth", block: "center" });
+  setTimeout(() => {
+    const content = document.getElementById(`content-${id}`);
+    if (content && !content.classList.contains("expanded")) toggleAccordion(id);
+  }, 550);
+};
 
 function toggleAccordion(id) {
   const content = document.getElementById(`content-${id}`);

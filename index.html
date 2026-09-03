@@ -312,6 +312,16 @@
         </div>
       </div>
 
+      <div class="journey-navigator no-print" aria-label="תחנות במסע המקצועי">
+        <div class="journey-navigator-heading">
+          <span>מסע בזמן</span>
+          <small>1998 - היום</small>
+        </div>
+        <div id="journey-stations" class="journey-stations">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
       <!-- Filters & Search Toolbar -->
       <div class="glass-card p-4 mb-8 no-print space-y-3">
         <div class="flex flex-col md:flex-row items-center justify-between gap-3">
@@ -349,7 +359,7 @@
       </div>
 
       <!-- Timeline Track & Cards -->
-      <div id="timeline-container" class="timeline-track">
+      <div id="timeline-container" class="timeline-track" aria-live="polite">
         <!-- Rendered via JS -->
       </div>
     </section>
