@@ -99,8 +99,8 @@ body::before {
 .media-card:hover { background: rgba(255, 255, 255, .55); border-color: var(--brass); box-shadow: none; transform: none; }
 .media-badge-source { border-radius: 0; background: var(--paper-deep) !important; color: var(--brass-deep) !important; border: 0 !important; }
 
-.mobile-bottom-dock { position: fixed; bottom: 0; left: 0; transform: none; width: 100%; max-width: none; z-index: 60; background: rgba(32, 32, 29, .97); border: 0; border-radius: 0; box-shadow: 0 -4px 14px rgba(32,32,29,.16); padding: .35rem .25rem; }
-.dock-btn { color: #ddd8ce; border-radius: 0; padding: .32rem .35rem; }
+.mobile-bottom-dock { position: fixed; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-around; width: 100%; max-width: none; z-index: 60; background: rgba(32, 32, 29, .97); border: 0; border-radius: 0; box-shadow: 0 -4px 14px rgba(32,32,29,.16); padding: .35rem .25rem; }
+.dock-btn { display: flex; flex: 1 1 0; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #ddd8ce; border-radius: 0; padding: .32rem .15rem; font-size: .65rem; text-decoration: none; }
 .dock-btn.active, .dock-btn:hover { color: #fff; background: rgba(255,255,255,.1); }
 
 .ai-chat-bubble-user { background: var(--ink); border-radius: 3px; color: var(--paper); box-shadow: none; }
